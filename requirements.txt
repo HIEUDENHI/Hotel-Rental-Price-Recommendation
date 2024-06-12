@@ -5,5 +5,4 @@ scipy==1.13.0
 selenium==4.16.0
 virtualenv==20.25.0
 wget==3.2
-webdriver-manager
 wheel==0.41.2
