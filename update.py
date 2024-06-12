@@ -11,6 +11,8 @@ import random
 import numpy as np
 import pandas as pd
 import os
+from webdriver_manager.chrome import ChromeDriverManager
+
 # Set up ChromeDriver path
 # chrome_driver_path = "./chromedriver.exe"  # Update this with your ChromeDriver path
 
@@ -22,7 +24,7 @@ options.add_experimental_option('useAutomationExtension', False)
 options.add_argument("--disable-blink-features=AutomationControlled")  # Added for extra security
 
 service = Service(executable_path=os.environ.get("CHROMEDRIVER_PATH"))
-driver = webdriver.Chrome(service=service, options=options)
+driver = webdriver.Chrome(options=options,executable_path=ChromeDriverManager().install())
 
 # Function to close popups
 def close_popups():
