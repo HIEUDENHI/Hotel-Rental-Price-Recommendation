@@ -18,13 +18,12 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 # Configure Chrome options to avoid detection
 options = Options()
-options.binary_location=os.environ.get("GOOGLE_CHROME_BIN")
 options.add_experimental_option("excludeSwitches", ["enable-automation"])
 options.add_experimental_option('useAutomationExtension', False)
 options.add_argument("--disable-blink-features=AutomationControlled")  # Added for extra security
 
 service = Service(executable_path=ChromeDriverManager().install())
-driver = webdriver.Chrome(options=options)
+driver = webdriver.Chrome(service=service,options=options)
 
 # Function to close popups
 def close_popups():
