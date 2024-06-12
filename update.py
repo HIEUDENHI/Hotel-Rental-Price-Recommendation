@@ -23,8 +23,8 @@ options.add_experimental_option("excludeSwitches", ["enable-automation"])
 options.add_experimental_option('useAutomationExtension', False)
 options.add_argument("--disable-blink-features=AutomationControlled")  # Added for extra security
 
-service = Service(executable_path=os.environ.get("CHROMEDRIVER_PATH"))
-driver = webdriver.Chrome(options=options,executable_path=ChromeDriverManager().install())
+service = Service(executable_path=ChromeDriverManager().install())
+driver = webdriver.Chrome(options=options)
 
 # Function to close popups
 def close_popups():
